@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Traversing And Accessing</title>
+
+</head>
+
+<body>
+
+
+    <input placeholder="position" type="number" id="position" />
+    <button onclick="removeElement()">Remove Element</button>
+
+    <script>
+        // delete an item from the array
+        let position = document.getElementById('position')
+
+        let data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+        let deletePosition = 2
+
+
+        function removeElement() {
+            if (parseInt(position.value) < data.length) {
+
+                for (let i = parseInt(position.value); i < data.length - 1; i++) {
+                    data[i] = data[i + 1]
+                    console.log(data[i])
+                }
+
+                data.length = data.length - 1
+                // data.pop()
+
+                // return empty array
+                if (data.length === 0) {
+                    data[0] = []
+                }
+                console.log(data)
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
