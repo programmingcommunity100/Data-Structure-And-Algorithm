@@ -14,11 +14,9 @@
 
     <script>
         let data = [50, 40, 7, 52, 38, 34, 42, 30, 10, 28, 55, 27, 98, 5, 7, 2]
-
-        for (let i = 0; i <= data.length - 1; i++) {
-            for (let j = 0; j <= data.length - 1; j++) {
+        for (let i = 0; i < data.length; i++) {
+            for (let j = 0; j < data.length; j++) {
                 if (data[j] > data[j + 1]) {
-                    console.warn(1);
                     let temp = data[j];
                     data[j] = data[j + 1];
                     data[j + 1] = temp;
