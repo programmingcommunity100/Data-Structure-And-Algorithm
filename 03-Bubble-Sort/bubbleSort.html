@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+
+<body>
+
+    <h1>Bubble sort</h1>
+
+    <script>
+        let data = [50, 40, 7, 52, 38, 34, 42, 30, 10, 28, 55, 27, 98, 5, 7, 2]
+
+        for (let i = 0; i <= data.length - 1; i++) {
+            for (let j = 0; j <= data.length - 1; j++) {
+                if (data[j] > data[j + 1]) {
+                    console.warn(1);
+                    let temp = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = temp;
+                }
+            }
+        }
+        console.error(data);
+
+    </script>
+</body>
+
+</html>
