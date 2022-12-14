@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Traversing And Accessing</title>
+
+</head>
+
+<body>
+
+    <input placeholder="position" type="number" id="position" />
+    <button onclick="reverseArray()">reverse</button>
+
+    <script>
+        let data = [1, 2, 3, 4, 5];
+        let data2 = [6, 7, 8, 9, 10]
+        let newArray = []
+
+        // execute the function
+        function reverseArray() {
+            for (let i = 0; i < data.length; i++) {
+                newArray[i] = data[i]
+            }
+            for (let i = 0; i < data2.length; i++) {
+                newArray[data.length + i] = data2[i]
+            }
+            console.log(newArray);
+        }
+    </script>
+</body>
+
+</html>

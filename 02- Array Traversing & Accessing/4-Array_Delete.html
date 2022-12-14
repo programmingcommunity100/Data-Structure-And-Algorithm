@@ -23,22 +23,23 @@
         let deletePosition = 2
 
 
+        // execute the function
         function removeElement() {
-            if (parseInt(position.value) < data.length) {
-
-                for (let i = parseInt(position.value); i < data.length - 1; i++) {
+            if (Number(position.value) < data.length) {
+                for (let i = Number(position.value); i < data.length; i++) {
                     data[i] = data[i + 1]
-                    console.log(data[i])
                 }
-
                 data.length = data.length - 1
                 // data.pop()
+
+                console.log(data);
 
                 // return empty array
                 if (data.length === 0) {
                     data[0] = []
                 }
-                console.log(data)
+            } else {
+                console.log(`invalid index number`);
             }
         }
 
