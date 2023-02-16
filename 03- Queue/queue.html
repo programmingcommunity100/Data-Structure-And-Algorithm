@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>push - unshift - shift - pop - display</h1>
+
+    <input type="text" id="inp">
+    <button onclick={operation.addItem()} id="addItem">push</button>
+    <button onclick={operation.unshift()}>unshift</button>
+    <button onclick={operation.fifo()}>shift</button>
+    <button onclick={operation.lifo()}>pop</button>
+    <button onclick={operation.displayItem()} id="displayItem">display</button>
+
+
+    <script>
+        let inp = document.getElementById("inp")
+
+        class Queue {
+            queue = [5, 4, 3, 2, 1]
+            currentSize;
+            maxSize;
+
+            constructor(size) {
+                this.maxSize = size;
+                this.currentSize = this.queue.length;
+            }
+
+            push(newVal) {
+                if (this.queue.length <= this.maxSize) {
+                    this.queue[this.currentSize] = newVal
+                    this.currentSize += 1
+                } else {
+                    console.warn('your queue limit exceed');
+                }
+            }
+
+            unshift(newVal) {
+                // this.queue.unshift(newVal)
+                for (let i = this.queue.length - 1; i >= 0; i--) {
+                    this.queue[i + 1] = this.queue[i]
+                    if (i === 0) {
+                        this.currentSize++
+                        this.queue[i] = newVal
+                    }
+                }
+            }
+
+            shift() {
+                if (this.queue.length > 0) {
+                    for (let i = 0; i < this.queue.length; i++) {
+                        this.queue[i] = this.queue[i + 1]
+                    }
+                    this.currentSize = this.currentSize - 1
+                    this.queue.length = this.currentSize;
+
+                } else {
+                    console.warn('queue is empty');
+                }
+            }
+
+            pop() {
+                this.currentSize -= 1
+                this.queue.length = this.currentSize;
+            }
+
+            display() {
+                return this.queue
+            }
+        }
+
+        let queue = new Queue(10)
+
+        class Operation {
+            addItem() {
+                queue.push(parseInt(inp.value));
+            }
+
+            unshift() {
+                queue.unshift(parseInt(inp.value));
+            };
+
+            fifo() {
+                queue.shift()
+            };
+
+            lifo() {
+                queue.pop()
+            };
+
+            displayItem() {
+                console.log(queue.display());
+            };
+        }
+
+        let operation = new Operation()
+
+        // function addItem() {
+        //     queue.push(parseInt(inp.value));
+        // };
+
+        // function unshift() {
+        //     queue.unshift(parseInt(inp.value));
+        // };
+
+        // function fifo() {
+        //     queue.shift()
+        // };
+
+        // function lifo() {
+        //     queue.pop()
+        // };
+
+        // function displayItem() {
+        //     console.log(queue.display());
+        // };
+
+
+        // queue.push(20)
+        // queue.push(30)
+        // queue.push(40)
+
+        // queue.shift()
+        // // queue.shift()
+
+        // queue.push(50)
+        // queue.push(60)
+
+        // queue.display()
+
+    </script>
+</body>
+
+</html>

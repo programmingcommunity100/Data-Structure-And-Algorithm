@@ -20,9 +20,41 @@
         let search = document.getElementById('search')
 
         let data = [9, 45, 55, 67, 89, 90, 100, 55, 65, 88, 77, 35];
+
+        class FindElementOfArray {
+            constructor() {
+                this.found = null;
+                this.message = '';
+            };
+
+            findItem(elem) {
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i] == elem) {
+                        this.found = data[i];
+                        this.message = `the element is ${this.found}`;
+                        break;
+                    };
+
+                    if (i === data.length - 1) {
+                        if (this.found === null) {
+                            this.message = 'the element is not found';
+                        };
+                    };
+                };
+            };
+
+            display() {
+                console.log(this.message);
+            };
+        };
+
+        const findElement = new FindElementOfArray();
+        findElement.findItem(677);
+        findElement.display();
+
+
+        /*
         let index = undefined;
-
-
         function searchElement() {
             for (let i = 0; i < data.length; i++) {
                 if (parseInt(search.value) == data[i]) {
@@ -43,7 +75,7 @@
             // replace item (position no., delete item, new element)
             // data.splice(parseInt(position.value), 0, parseInt(element.value))
             console.log(data)
-        }
+        } */
 
         // function searchElement() {
         //     for (let i = 0; i < data.length; i++) {

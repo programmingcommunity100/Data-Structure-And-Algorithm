@@ -5,31 +5,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array Traversing And Accessing</title>
-
+    <title>stack - push & pop</title>
 </head>
 
 <body>
 
-    <input placeholder="position" type="number" id="position" />
-    <button onclick="reverseArray()">reverse</button>
+    <!-- <input id="inpValue" type="text" placeholder="type your value">
+    <button onclick="push()">submit</button> -->
+
+    <h1>stack - push & pop</h1>
 
     <script>
-        let data = [1, 2, 3, 4, 5];
-        let data2 = [6, 7, 8, 9, 10]
-        let newArray = []
 
-        // execute the function
-        function reverseArray() {
-            for (let i = 0; i < data.length; i++) {
-                newArray[i] = data[i]
+        class CircularQueue {
+            constructor(size) {
+                this.maxSize = size;
+                this.items = new Array(5);
+                this.currentSize = 0;
+                this.front = -1;
+                this.rear = -1;
             }
-            for (let i = 0; i < data2.length; i++) {
-                newArray[data.length + i] = data2[i]
-            }
-            console.log(newArray);
-        }
+
+
+            enqueue(newItem) {
+                if (this.currentSize !== this.maxSize) {
+                    if (this.rear === this.maxSize - 1) {
+                        this.rear = 0;
+                    } else {
+                        this.rear = this.rear + 1;
+                    };
+
+                    this.items[this.rear] = newItem;
+                    this.currentSize += 1
+
+                    if (this.front === -1) {
+                        this.front = this.rear;
+                    }
+                } else {
+                    console.warn("queue is full")
+                };
+            };
+
+            dequeue() {
+                if (this.currentSize !== 0) {
+                    this.items[this.front] = null;
+                    if (this.front == this.maxSize - 1) {
+                        this.front = 0;
+                    } else {
+                        this.front = this.front + 1;
+                    }
+                    this.currentSize = this.currentSize - 1;
+                } else {
+                    this.front = -1;
+                    this.rear = -1;
+                    console.warn('queue is empty');
+                }
+            };
+        };
+
+
+        const circularQueue = new CircularQueue(5);
+
+
+
     </script>
+
 </body>
 
 </html>
